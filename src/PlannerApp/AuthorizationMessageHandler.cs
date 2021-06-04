@@ -3,6 +3,7 @@ using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Net.Http.Headers;
 
 namespace PlannerApp
 {
@@ -20,7 +21,7 @@ namespace PlannerApp
             if (await _storage.ContainKeyAsync("access_token"))
             {
                 var token = await _storage.GetItemAsStringAsync("access_token");
-                request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
             }
             Console.WriteLine("Auth Message Handler Called");
             return await base.SendAsync(request, cancellationToken);
