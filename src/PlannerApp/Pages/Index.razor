@@ -9,7 +9,9 @@ Welcome to your new app.
         <h2>Welcome, @context.User.FindFirst(System.Security.Claims.ClaimTypes.GivenName).Value</h2>
     </Authorized>
     <NotAuthorized>
-        <h3>Please Login</h3>
+        <MudLink Href="/authentication/login">
+            Login
+        </MudLink>
     </NotAuthorized>
 </AuthorizeView>
 
